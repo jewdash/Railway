@@ -1,7 +1,9 @@
+#pragma warning(disable: 4996)
 #include "accounts.h"
 #include "State.h"
 #include "SmartPtr.h"
-#include "SmartPtr.cpp"
+#include "console_settings.h"
+#include "checkings.h"
 
 #include <iostream>
 #include <string>
@@ -20,20 +22,7 @@ using namespace std;
 
 AdminAcc admin_account;
 UserAcc user_account;
-HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 int state = State::logged_out;
-
-void setCursorToXY(short x, short y) {
-	SetConsoleCursorPosition(hStdOut, { x, y });
-}
-
-void ConsoleCursorVisible(bool show, short size) {
-	CONSOLE_CURSOR_INFO structCursorInfo;
-	GetConsoleCursorInfo(hStdOut, &structCursorInfo);
-	structCursorInfo.bVisible = show; // изменяем видимость курсора
-	structCursorInfo.dwSize = size; // изменяем размер курсора
-	SetConsoleCursorInfo(hStdOut, &structCursorInfo);
-}
 
 void menu();
 void admins_menu();

@@ -145,6 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accounts.h" />
+    <ClInclude Include="console_settings.cpp" />
+    <ClInclude Include="checkings.cpp" />
+    <ClInclude Include="console_settings.h" />
+    <ClInclude Include="checkings.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="SmartPtr.h" />
   </ItemGroup>

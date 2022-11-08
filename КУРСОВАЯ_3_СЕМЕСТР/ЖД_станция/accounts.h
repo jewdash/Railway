@@ -1,5 +1,8 @@
 #pragma once
+#include <iostream>
 #include <string>
+#include "console_settings.h"
+#include "checkings.h"
 
 using namespace std;
 
@@ -23,16 +26,16 @@ public:
 		this->password = obj.password;
 	}
 
-	virtual bool sign_in() { return true; }
-	virtual bool sign_up() { return true; }
+	virtual bool sign_in();
+	virtual bool sign_up();
 
-	virtual void writeInfo() {}
-	virtual void readInfo() {}
+	virtual void writeInfo();
+	virtual void readInfo();
 
-	virtual void display_tickets() {}
-	virtual void sort_tickets() {}
-	virtual void filter_tickets() {}
-	virtual void find_ticket() {}
+	virtual void display_tickets();
+	virtual void sort_tickets();
+	virtual void filter_tickets();
+	virtual void find_ticket();
 };
 
 class UserAcc : public Account {

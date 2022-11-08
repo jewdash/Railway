@@ -1,13 +1,6 @@
-﻿  MAIN.cpp
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(165,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(180,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(216,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(216,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(221,36): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(276,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(291,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(327,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(327,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(332,36): warning C4018: '<': signed/unsigned mismatch
-  ЖД_станция.vcxproj -> C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe
+﻿accounts.obj : error LNK2005: "void * hStdOut" (?hStdOut@@3PAXA) already defined in MAIN.obj
+MAIN.obj : error LNK2019: unresolved external symbol "void __cdecl setCursorToXY(short,short)" (?setCursorToXY@@YAXFF@Z) referenced in function "void __cdecl admins_menu(void)" (?admins_menu@@YAXXZ)
+accounts.obj : error LNK2001: unresolved external symbol "void __cdecl setCursorToXY(short,short)" (?setCursorToXY@@YAXFF@Z)
+MAIN.obj : error LNK2019: unresolved external symbol "void __cdecl ConsoleCursorVisible(bool,short)" (?ConsoleCursorVisible@@YAX_NF@Z) referenced in function "void __cdecl admins_menu(void)" (?admins_menu@@YAXXZ)
+accounts.obj : error LNK2019: unresolved external symbol "bool __cdecl checkAuthorization(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,bool,bool)" (?checkAuthorization@@YA_NHHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N1@Z) referenced in function "public: virtual bool __thiscall Account::sign_up(void)" (?sign_up@Account@@UAE_NXZ)
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe : fatal error LNK1120: 3 unresolved externals

@@ -35,5 +35,17 @@
     <ClInclude Include="accounts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="checkings.cpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="console_settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="console_settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="checkings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
