@@ -1,0 +1,13 @@
+﻿  MAIN.cpp
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(165,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(180,37): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(216,18): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(216,54): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(221,36): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(276,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(291,37): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(327,18): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(327,54): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(332,36): warning C4018: '<': signed/unsigned mismatch
+  ЖД_станция.vcxproj -> C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe
