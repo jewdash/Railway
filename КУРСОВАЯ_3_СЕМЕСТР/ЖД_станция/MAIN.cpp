@@ -1,4 +1,3 @@
-#pragma warning(disable: 4996)
 #include "accounts.h"
 #include "State.h"
 #include "SmartPtr.h"
@@ -12,6 +11,7 @@
 #include <vector>
 
 #define ENTER 13
+#define BACKSPACE 8
 #define ESC 27
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -65,7 +65,7 @@ void menu() {
 	ConsoleCursorVisible(false, 100);
 	char ch;
 	while (1) {
-		system("cls");
+		/*system("cls");*/
 		SetConsoleTextAttribute(hStdOut, 15);
 		setCursorToXY(5, 1);
 		cout << "ÄËß ÍÀ×ÀËÀ ÇÀÐÅÃÈÑÒÐÈÐÓÉÒÅÑÜ ÈËÈ ÂÎÉÄÈÒÅ Â ÑÈÑÒÅÌÓ";
@@ -79,12 +79,12 @@ void menu() {
 			}
 			else {
 				SetConsoleTextAttribute(hStdOut, 3);
-				cout << actions[i] << endl;
+				cout << actions[i] << "   " << endl;
 			}
 			setCursorToXY(5, y += 2);
 		}
 		SetConsoleTextAttribute(hStdOut, 8);
-		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä";
+		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä èç ïðîãðàììû";
 		ch = _getch();
 		if (ch == -32) ch = _getch();
 		
@@ -109,10 +109,38 @@ void menu() {
 		case ENTER:
 			switch (activated) 
 			{
-			case 0: admin_account.sign_up() ? state = State::admin : state = State::logged_out; break; //reg as admin
-			case 1: admin_account.sign_in() ? state = State::admin : state = State::logged_out; break; //enter as admin
-			case 2: user_account.sign_up() ? state = State::user : state = State::logged_out; break; //reg as user
-			case 3: user_account.sign_in() ? state = State::user : state = State::logged_out; break; //enter as user
+			case 0: admin_account.sign_up();
+				if (admin_account.writeInfo()) {
+					SetConsoleTextAttribute(hStdOut, 10);
+					cout << endl << endl;
+					cout << " ÂÛ ÓÑÏÅØÍÎ ÇÀÐÅÃÈÑÒÐÈÐÎÂÀËÈÑÜ.\n";
+					cout << " Äàííûå î âàøåì àêêàóíòå òåïåðü õðàíÿòñÿ â ôàéëå\n Ïðè ïîâòîðíîé ðåãèñòðàöèè äàííûå áóäóò óòåðÿíû è íà èõ ìåñòå áóäóò çàïèñàíû íîâûå\n";
+					SetConsoleTextAttribute(hStdOut, 2);
+					cout << endl;
+					Sleep(2000);
+					cout << " Íàæìèòå íà ëþáóþ êëàâèøó åñëè âàì âñ¸ ïîíÿòíî è æåëàåòå ïðîäîëæèòü . . .";
+					if (_getch()) {}
+					state = State::admin;
+				}
+				else state = State::logged_out;
+				break; //reg as admin
+			case 1: admin_account.sign_in(); state = State::admin; break; //enter as admin
+			case 2: user_account.sign_up(); 
+				if (user_account.writeInfo()) {
+					SetConsoleTextAttribute(hStdOut, 10);
+					cout << endl << endl;
+					cout << " ÂÛ ÓÑÏÅØÍÎ ÇÀÐÅÃÈÑÒÐÈÐÎÂÀËÈÑÜ.\n";
+					cout << " Äàííûå î âàøåì àêêàóíòå òåïåðü õðàíÿòñÿ â ôàéëå\n Ïðè ïîâòîðíîé ðåãèñòðàöèè äàííûå áóäóò óòåðÿíû è íà èõ ìåñòå áóäóò çàïèñàíû íîâûå\n";
+					SetConsoleTextAttribute(hStdOut, 2);
+					cout << endl;
+					Sleep(2000);
+					cout << " Íàæìèòå íà ëþáóþ êëàâèøó åñëè âàì âñ¸ ïîíÿòíî è æåëàåòå ïðîäîëæèòü . . .";
+					if (_getch()) {}
+					state = State::user;
+				}
+				else state = State::logged_out; 
+				break; //reg as user
+			case 3: user_account.sign_in(); state = State::user; break; //enter as user
 			}
 			return;
 		default: continue;
@@ -144,7 +172,7 @@ void admins_menu() {
 	ConsoleCursorVisible(false, 100);
 	char ch;
 	while (1) {
-		system("cls");
+		/*system("cls");*/
 		SetConsoleTextAttribute(hStdOut, 15);
 		setCursorToXY(5, 1);
 		cout << "ÌÎÄÓËÜ ÀÄÌÈÍÈÑÒÐÀÒÎÐÀ. ÂÛÁÅÐÈÒÅ ÄÅÉÑÒÂÈÅ";
@@ -158,7 +186,7 @@ void admins_menu() {
 			}
 			else {
 				SetConsoleTextAttribute(hStdOut, 3);
-				cout << actions[i] << endl;
+				cout << actions[i] << "     " << endl;
 			}
 			setCursorToXY(5, y += 2);
 		}
@@ -173,17 +201,31 @@ void admins_menu() {
 			}
 			else {
 				SetConsoleTextAttribute(hStdOut, 3);
-				cout << actions[i] << endl;
+				cout << actions[i] << "    " << endl;
 			}
 			setCursorToXY(40, y += 2);
 		}
 		SetConsoleTextAttribute(hStdOut, 8);
 		setCursorToXY(5, y + 1);
-		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä";
+		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä èç ïðîãðàììû, Backspace - âûõîä èç àêêàóíòà";
 		ch = _getch();
 		if (ch == -32) ch = _getch();
 
 		switch (ch) {
+		case BACKSPACE:
+			system("cls");
+			SetConsoleTextAttribute(hStdOut, 7);
+			setCursorToXY(35, 13);
+			cout << "ÂÛ ÂÛØËÈ ÈÇ ÀÊÊÀÓÍÒÀ! ÑÏÀÑÈÁÎ ÇÀ ÐÀÁÎÒÓ!";
+			Sleep(3000);
+			setCursorToXY(5, 25);
+			SetConsoleTextAttribute(hStdOut, 8);
+			ConsoleCursorVisible(false, 100);
+			cout << "Íàæìèòå ëþáóþ êëàâèøó, ÷òîáû ïðîäîëæèòü . . .";
+			if (_getch()) {}
+			state = State::logged_out;
+			system("cls");
+			return;
 		case ESC:
 			system("cls");
 			SetConsoleTextAttribute(hStdOut, 7);
@@ -255,7 +297,7 @@ void users_menu() {
 	ConsoleCursorVisible(false, 100);
 	char ch;
 	while (1) {
-		system("cls");
+		/*system("cls");*/
 		SetConsoleTextAttribute(hStdOut, 15);
 		setCursorToXY(5, 1);
 		cout << "ÌÎÄÓËÜ ÏÎËÜÇÎÂÀÒÅËß. ÂÛÁÅÐÈÒÅ ÄÅÉÑÒÂÈÅ";
@@ -269,7 +311,7 @@ void users_menu() {
 			}
 			else {
 				SetConsoleTextAttribute(hStdOut, 3);
-				cout << actions[i] << endl;
+				cout << actions[i] << "    " << endl;
 			}
 			setCursorToXY(5, y += 2);
 		}
@@ -284,17 +326,31 @@ void users_menu() {
 			}
 			else {
 				SetConsoleTextAttribute(hStdOut, 3);
-				cout << actions[i] << endl;
+				cout << actions[i] << "    " << endl;
 			}
 			setCursorToXY(40, y += 2);
 		}
 		SetConsoleTextAttribute(hStdOut, 8);
 		setCursorToXY(5, y + 1);
-		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä";
+		cout << "Enter - ïîäòâåðäèòü âûáîð, Esc - âûõîä èç ïðîãðàììû, Backspace - âûõîä èç àêêàóíòà";
 		ch = _getch();
 		if (ch == -32) ch = _getch();
 
 		switch (ch) {
+		case BACKSPACE:
+			system("cls");
+			SetConsoleTextAttribute(hStdOut, 7);
+			setCursorToXY(35, 13);
+			cout << "ÂÛ ÂÛØËÈ ÈÇ ÀÊÊÀÓÍÒÀ! ÑÏÀÑÈÁÎ ÇÀ ÐÀÁÎÒÓ!";
+			Sleep(3000);
+			setCursorToXY(5, 25);
+			SetConsoleTextAttribute(hStdOut, 8);
+			ConsoleCursorVisible(false, 100);
+			cout << "Íàæìèòå ëþáóþ êëàâèøó, ÷òîáû ïðîäîëæèòü . . .";
+			if (_getch()) {}
+			state = State::logged_out;
+			system("cls");
+			return;
 		case ESC:
 			system("cls");
 			SetConsoleTextAttribute(hStdOut, 7);

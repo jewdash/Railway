@@ -88,10 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,15 +144,20 @@
     <ClCompile Include="MAIN.cpp" />
     <ClCompile Include="SmartPtr.cpp" />
     <ClCompile Include="accounts.cpp" />
+    <ClCompile Include="console_settings.cpp" />
+    <ClCompile Include="checkings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accounts.h" />
-    <ClInclude Include="console_settings.cpp" />
-    <ClInclude Include="checkings.cpp" />
     <ClInclude Include="console_settings.h" />
     <ClInclude Include="checkings.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="SmartPtr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="admin_key.txt" />
+    <Text Include="admin.txt" />
+    <Text Include="user.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

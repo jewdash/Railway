@@ -1,4 +1,3 @@
-#pragma once
 #include "console_settings.h"
 
 HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);

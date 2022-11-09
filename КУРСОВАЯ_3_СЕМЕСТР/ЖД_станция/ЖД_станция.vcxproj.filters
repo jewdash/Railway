@@ -24,6 +24,12 @@
     <ClCompile Include="accounts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="console_settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="checkings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SmartPtr.h">
@@ -35,17 +41,22 @@
     <ClInclude Include="accounts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="checkings.cpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="console_settings.cpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="console_settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="checkings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="admin_key.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="user.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="admin.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

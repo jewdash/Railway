@@ -3,6 +3,6 @@
 #include <windows.h>
 #include <conio.h>
 
-HANDLE hStdOut;
-void setCursorToXY(short, short);
+extern HANDLE hStdOut;
+void setCursorToXY(short x, short y);
 void ConsoleCursorVisible(bool, short);

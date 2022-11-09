@@ -1,8 +1,15 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include <conio.h>
+#include <fstream>
 #include "console_settings.h"
 #include "checkings.h"
+
+//extern HANDLE hStdOut;
+//extern HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//extern void setCursorToXY(short, short);
 
 using namespace std;
 
@@ -26,11 +33,11 @@ public:
 		this->password = obj.password;
 	}
 
-	virtual bool sign_in();
-	virtual bool sign_up();
+	virtual void sign_in();
+	virtual void sign_up();
 
-	virtual void writeInfo();
-	virtual void readInfo();
+	//virtual bool writeInfo();
+	//virtual bool readInfo();
 
 	virtual void display_tickets();
 	virtual void sort_tickets();
@@ -59,32 +66,27 @@ public:
 	void filter_tickets();
 	void find_ticket();
 
-	bool sign_in();
-	bool sign_up();
+	void sign_in();
+	void sign_up();
 
 	void fill_balance();
 	void see_balance();
 	void buy_ticket();
 	void check_history();
 
-	void readInfo();
-	void writeInfo();
+	bool readInfo();
+	bool writeInfo();
+
+	friend ostream& operator<<(ostream&, UserAcc&);
+	friend istream& operator>>(istream&, UserAcc&);
+	UserAcc operator=(UserAcc);
 };
 
 class AdminAcc : public Account {
-protected:
-	string confirm;
 public:
-	AdminAcc() : Account(),
-		confirm("") {}
+	AdminAcc() {}
 
-	AdminAcc(string confirm) {
-		this->confirm = confirm;
-	}
-
-	AdminAcc(const AdminAcc& obj) {
-		this->confirm = obj.confirm;
-	}
+	AdminAcc(const AdminAcc& obj) {}
 
 	~AdminAcc() {}
 
@@ -98,8 +100,8 @@ public:
 	void filter_stations();
 	void find_station();
 
-	bool sign_in();
-	bool sign_up();
+	void sign_in();
+	void sign_up();
 
 	void create_ticket();
 	void delete_ticket();
@@ -109,6 +111,10 @@ public:
 	void remove_station();
 	void edit_station();
 
-	void readInfo();
-	void writeInfo();
+	bool readInfo();
+	bool writeInfo();
+
+	friend ostream& operator<<(ostream&, AdminAcc&);
+	friend istream& operator>>(istream&, AdminAcc&);
+	AdminAcc operator=(AdminAcc);
 };
