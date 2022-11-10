@@ -146,6 +146,11 @@
     <ClCompile Include="accounts.cpp" />
     <ClCompile Include="console_settings.cpp" />
     <ClCompile Include="checkings.cpp" />
+    <ClCompile Include="admin_mod_station.cpp" />
+    <ClCompile Include="admin_mod_ticket.cpp" />
+    <ClCompile Include="overloadings.cpp" />
+    <ClCompile Include="user_mod_buying.cpp" />
+    <ClCompile Include="user_mod_ticket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accounts.h" />

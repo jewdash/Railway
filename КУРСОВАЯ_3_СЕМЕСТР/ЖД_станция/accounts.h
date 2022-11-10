@@ -7,10 +7,6 @@
 #include "console_settings.h"
 #include "checkings.h"
 
-//extern HANDLE hStdOut;
-//extern HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-//extern void setCursorToXY(short, short);
-
 using namespace std;
 
 class Account {
@@ -43,6 +39,8 @@ public:
 	virtual void sort_tickets();
 	virtual void filter_tickets();
 	virtual void find_ticket();
+
+	virtual bool loginCorrect() { return true; }
 };
 
 class UserAcc : public Account {
@@ -57,9 +55,9 @@ public:
 		this->balance = balance;
 	}
 
-	UserAcc(const UserAcc& obj) {
-		this->balance = obj.balance;
-	}
+	//UserAcc(const UserAcc& obj) {
+	//	this->balance = obj.balance;
+	//}
 
 	void display_tickets();
 	void sort_tickets();
@@ -79,16 +77,19 @@ public:
 
 	friend ostream& operator<<(ostream&, UserAcc&);
 	friend istream& operator>>(istream&, UserAcc&);
+	friend istream& operator>>(istream&, string&);
 	UserAcc operator=(UserAcc);
+	bool loginCorrect(UserAcc user) {
+		if (!Account::loginCorrect()) return false;
+		if (login == user.login && password == user.password) return true;
+		else return false;
+	}
 };
 
 class AdminAcc : public Account {
 public:
+
 	AdminAcc() {}
-
-	AdminAcc(const AdminAcc& obj) {}
-
-	~AdminAcc() {}
 
 	void display_tickets();
 	void sort_tickets();
@@ -117,4 +118,9 @@ public:
 	friend ostream& operator<<(ostream&, AdminAcc&);
 	friend istream& operator>>(istream&, AdminAcc&);
 	AdminAcc operator=(AdminAcc);
+	bool loginCorrect(AdminAcc adm) {
+		if (!Account::loginCorrect()) return false;
+		if (login == adm.login && password == adm.password) return true;
+		else return false;
+	}
 };

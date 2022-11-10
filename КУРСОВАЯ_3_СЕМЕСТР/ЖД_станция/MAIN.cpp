@@ -1,6 +1,7 @@
 #include "accounts.h"
 #include "State.h"
 #include "SmartPtr.h"
+#include "SmartPtr.cpp"
 #include "console_settings.h"
 #include "checkings.h"
 
@@ -107,14 +108,84 @@ void menu() {
 				activated = 0;
 			break;
 		case ENTER:
-			switch (activated) 
+			switch (activated)
 			{
-			case 0: admin_account.sign_up();
-				if (admin_account.writeInfo()) {
+			case 0: {
+				admin_account.sign_up();
+				string confirm;
+				string admin_key;
+				try {
+					ifstream fin;
+					fin.open("admin_key.txt", ios::in);
+					if (!fin) throw "Ошибка открытия файла";
+
+					fin >> admin_key;
+					fin.close();
+
+					SetConsoleTextAttribute(hStdOut, 7);
+					cout << "\n Введите ключ администратора: ";
+					SetConsoleTextAttribute(hStdOut, 14);
+					ConsoleCursorVisible(true, 100);
+					getline(cin, confirm);
+					ConsoleCursorVisible(false, 100);
+
+					if (confirm != admin_key) throw "Неверный ключ администратора";
+
+					if (admin_account.writeInfo()) {
+						SetConsoleTextAttribute(hStdOut, 10);
+						cout << endl << endl;
+						cout << " ВЫ УСПЕШНО ЗАРЕГИСТРИРОВАЛИСЬ.\n";
+						cout << " Данные о вашем аккаунте теперь хранятся в файле\n При повторной регистрации данные будут утеряны и на их месте будут записаны новые\n";
+						SetConsoleTextAttribute(hStdOut, 2);
+						cout << endl;
+						Sleep(2000);
+						cout << " Нажмите на любую клавишу если вам всё понятно и желаете продолжить . . .";
+						if (_getch()) {}
+						state = State::admin;
+					}
+					else state = State::logged_out;
+				}
+				catch (const char* exc) {
+					SetConsoleTextAttribute(hStdOut, 12);
+					cout << endl << endl << " Произошла ошибка: " << exc << endl;
+					SetConsoleTextAttribute(hStdOut, 4);
+					cout << endl;
+					Sleep(2000);
+					cout << " Нажмите на любую клавишу если вам всё понятно и попробуйте снова . . .";
+					if (_getch()) {}
+				}
+				break; //reg as admin
+			}
+			case 1: {
+				string confirm;
+				string admin_key;
+				try {
+					AdminAcc acc;
+					if (!admin_account.readInfo()) throw "Ошибка считывания из файла";
+					acc.sign_in();
+
+					ifstream fin;
+					fin.open("admin_key.txt", ios::in);
+					if (!fin) throw "Ошибка открытия файла";
+
+					fin >> admin_key;
+					fin.close();
+
+					SetConsoleTextAttribute(hStdOut, 7);
+					cout << "\n Введите ключ администратора: ";
+					SetConsoleTextAttribute(hStdOut, 14);
+					ConsoleCursorVisible(true, 100);
+					getline(cin, confirm);
+					ConsoleCursorVisible(false, 100);
+
+					if (confirm != admin_key) throw "Неверный ключ администратора";
+
+					if (!admin_account.loginCorrect(acc)) throw "Неверный логин или пароль";
+
 					SetConsoleTextAttribute(hStdOut, 10);
 					cout << endl << endl;
-					cout << " ВЫ УСПЕШНО ЗАРЕГИСТРИРОВАЛИСЬ.\n";
-					cout << " Данные о вашем аккаунте теперь хранятся в файле\n При повторной регистрации данные будут утеряны и на их месте будут записаны новые\n";
+					cout << " ВЫ УСПЕШНО ВОШЛИ В АККАУНТ.\n";
+					cout << " Для выхода из аккаунта нажмите Backspace\n Для смены данных аккаунта зарегистрируйте новый. При этом старые данные будут утеряны\n";
 					SetConsoleTextAttribute(hStdOut, 2);
 					cout << endl;
 					Sleep(2000);
@@ -122,10 +193,19 @@ void menu() {
 					if (_getch()) {}
 					state = State::admin;
 				}
-				else state = State::logged_out;
-				break; //reg as admin
-			case 1: admin_account.sign_in(); state = State::admin; break; //enter as admin
-			case 2: user_account.sign_up(); 
+				catch (const char* exc) {
+					SetConsoleTextAttribute(hStdOut, 12);
+					cout << endl << endl << " Произошла ошибка: " << exc << endl;
+					SetConsoleTextAttribute(hStdOut, 4);
+					cout << endl;
+					Sleep(2000);
+					cout << " Нажмите на любую клавишу если вам всё понятно и попробуйте снова . . .";
+					if (_getch()) {}
+				}
+				break; //enter as admin
+			}
+			case 2: {
+				user_account.sign_up();
 				if (user_account.writeInfo()) {
 					SetConsoleTextAttribute(hStdOut, 10);
 					cout << endl << endl;
@@ -138,9 +218,39 @@ void menu() {
 					if (_getch()) {}
 					state = State::user;
 				}
-				else state = State::logged_out; 
+				else state = State::logged_out;
 				break; //reg as user
-			case 3: user_account.sign_in(); state = State::user; break; //enter as user
+			}
+			case 3: {
+				try {
+					UserAcc acc;
+					if (!user_account.readInfo()) throw "Ошибка считывания из файла";
+					acc.sign_in();
+
+					if (!user_account.loginCorrect(acc)) throw "Неверный логин или пароль";
+
+					SetConsoleTextAttribute(hStdOut, 10);
+					cout << endl << endl;
+					cout << " ВЫ УСПЕШНО ВОШЛИ В АККАУНТ.\n";
+					cout << " Для выхода из аккаунта нажмите Backspace\n Для смены данных аккаунта зарегистрируйте новый. При этом старые данные будут утеряны\n";
+					SetConsoleTextAttribute(hStdOut, 2);
+					cout << endl;
+					Sleep(2000);
+					cout << " Нажмите на любую клавишу если вам всё понятно и желаете продолжить . . .";
+					if (_getch()) {}
+					state = State::user;
+				}
+				catch (const char* exc) {
+					SetConsoleTextAttribute(hStdOut, 12);
+					cout << endl << endl << " Произошла ошибка: " << exc << endl;
+					SetConsoleTextAttribute(hStdOut, 4);
+					cout << endl;
+					Sleep(2000);
+					cout << " Нажмите на любую клавишу если вам всё понятно и попробуйте снова . . .";
+					if (_getch()) {}
+				}
+				break; //enter as user
+			}
 			}
 			return;
 		default: continue;
