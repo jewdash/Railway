@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <fstream>
+#include <vector>
 #include "console_settings.h"
 #include "checkings.h"
 

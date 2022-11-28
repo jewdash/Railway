@@ -4,6 +4,8 @@
 #include "SmartPtr.cpp"
 #include "console_settings.h"
 #include "checkings.h"
+#include "station.h"
+#include "ticket.h"
 
 #include <iostream>
 #include <string>
@@ -24,6 +26,8 @@ using namespace std;
 AdminAcc admin_account;
 UserAcc user_account;
 int state = State::logged_out;
+extern vector<Station> station_vec;
+extern vector<Ticket> ticket_vec;
 
 void menu();
 void admins_menu();
@@ -33,6 +37,7 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	SetConsoleTitle(L"Ѕелорусска€ железна€ дорога");
+	srand(time(NULL));
 	ConsoleCursorVisible(false, 100);
 
 	setCursorToXY(35, 13);
@@ -366,21 +371,21 @@ void admins_menu() {
 		case ENTER:
 			switch (activated)
 			{
-			case 0: break; 
-			case 1: break; 
-			case 2: break; 
-			case 3: break;
-			case 4: break;
-			case 5: break;
-			case 6: break;
+			case 0: admin_account.create_ticket(); break;		//добавить билет
+			case 1: admin_account.delete_ticket(); break;		//удалить билеты
+			case 2: admin_account.display_tickets(); break;		//просмотреть билеты
+			case 3: admin_account.edit_ticket(); break;			//редактировать билет
+			case 4: admin_account.find_ticket(); break;			//поиск билетов
+			case 5: admin_account.sort_tickets(); break;		//сортировка билетов
+			case 6: admin_account.filter_tickets(); break;		//фильтраци€ билетов
 
-			case 7: break;
-			case 8: break;
-			case 9: break;
-			case 10: break;
-			case 11: break;
-			case 12: break;
-			case 13: break;
+			case 7: admin_account.add_station(); break;			//добавить станцию
+			case 8: admin_account.remove_station(); break;		//удалить станцию
+			case 9: admin_account.display_stations(); break;	//просмотреть станцию
+			case 10: admin_account.edit_station(); break;		//редактировать станцию
+			case 11: admin_account.find_station(); break;		//поиск станции
+			case 12: admin_account.sort_stations(); break;		//сортировка станций
+			case 13: admin_account.filter_stations(); break;	//фильтраци€ станций
 			}
 			break;
 		default: continue;
@@ -491,15 +496,15 @@ void users_menu() {
 		case ENTER:
 			switch (activated)
 			{
-			case 0: break;
-			case 1: break;
-			case 2: break;
-			case 3: break;
+			case 0: user_account.display_tickets(); break;	//ѕросмотреть билеты
+			case 1: user_account.find_ticket(); break;		//Ќайти билет
+			case 2: user_account.sort_tickets(); break;		//—ортировать билеты
+			case 3: user_account.filter_tickets(); break;	//‘ильтровать билеты
 
-			case 4: break;
-			case 5: break;
-			case 6: break;
-			case 7: break;
+			case 4: user_account.fill_balance(); break;		//ѕополнить баланс
+			case 5: user_account.see_balance(); break;		//ѕросмотреть баланс
+			case 6: user_account.buy_ticket(); break;		// упить билет
+			case 7: user_account.check_history(); break;	//»стори€ покупок
 			}
 			break;
 		default: continue;

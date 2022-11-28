@@ -1,20 +1,2 @@
-﻿  MAIN.cpp
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(76,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(292,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(307,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(357,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(357,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(362,36): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(417,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(432,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(482,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(482,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(487,36): warning C4018: '<': signed/unsigned mismatch
-  SmartPtr.cpp
-  admin_mod_station.cpp
-  admin_mod_ticket.cpp
-  user_mod_buying.cpp
-  user_mod_ticket.cpp
-  Generating Code...
-  LINK : C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe not found or not built by the last incremental link; performing full link
+﻿  admin_mod_station.cpp
   ЖД_станция.vcxproj -> C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe

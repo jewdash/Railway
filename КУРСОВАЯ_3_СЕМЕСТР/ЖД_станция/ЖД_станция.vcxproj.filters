@@ -45,6 +45,12 @@
     <ClCompile Include="overloadings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="station.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ticket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SmartPtr.h">
@@ -62,6 +68,12 @@
     <ClInclude Include="checkings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ticket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="station.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="admin_key.txt">
@@ -71,6 +83,18 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="admin.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="stations.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="tickets.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="regions.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="departaments.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

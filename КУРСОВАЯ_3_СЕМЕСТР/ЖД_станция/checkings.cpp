@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 #include <conio.h>
+#include <random>
+#include <time.h>
+#include <ctime>
+#include "ticket.h"
 #include "checkings.h"
 
 
@@ -29,3 +33,46 @@ bool checkAuthorization(int min, int max, string data, bool consider_digits, boo
 
 	return true;
 }
+
+void generateID(int id) {
+	id = (1000 + rand() % 10000) - 1000;
+}
+
+bool checkDateTime(DateTime dt) {
+	if (dt.getY() < 1970 || dt.getY() > 2100) return false;
+	if (dt.getMth() < 1 || dt.getMth() > 12) return false;
+	switch (dt.getMth()) {
+	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+		if (dt.getD() < 1 || dt.getD() > 31) return false;
+	case 4: case 6: case 9: case 11:
+		if (dt.getD() < 1 || dt.getD() > 30) return false;
+	case 2: {
+		if (dt.getMth() % 4 == 0) {
+			if (dt.getD() < 1 || dt.getD() > 29) return false;
+		}
+		else {
+			if (dt.getD() < 1 || dt.getD() > 28) return false;
+		}
+	}
+	}
+	if (dt.getH() < 0 || dt.getH() > 23) return false;
+	if (dt.getMts() < 0 || dt.getMts() > 59) return false;
+	return true;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+
+//DateTime getCurrentDate() {
+//	time_t now;
+//	tm* timeinfo = localtime_s(now);
+//
+//	int day = timeinfo->tm_mday;
+//	int month = timeinfo->tm_mon + 1;
+//	int year = timeinfo->tm_year + 1900;
+//
+//	int hours = timeinfo->tm_hour;
+//	int minutes = timeinfo->tm_min;
+//
+//	DateTime current(day, month, year, hours, minutes);
+//	return current;
+//}
