@@ -26,8 +26,6 @@ using namespace std;
 AdminAcc admin_account;
 UserAcc user_account;
 int state = State::logged_out;
-extern vector<Station> station_vec;
-extern vector<Ticket> ticket_vec;
 
 void menu();
 void admins_menu();

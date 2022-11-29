@@ -12,4 +12,5 @@ using std::string;
 bool checkAuthorization(int, int, string, bool, bool);
 void generateID(int);
 bool checkDateTime(DateTime);
+string getUppercaseString(string);
 //DateTime getCurrentDate();

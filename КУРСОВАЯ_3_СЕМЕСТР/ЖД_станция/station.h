@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -75,5 +76,5 @@ public:
 
 	
 	bool writeStation();
-	bool readStation();
+	bool readStation(vector<Station>& stv);
 };

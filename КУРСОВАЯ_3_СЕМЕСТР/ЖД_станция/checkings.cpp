@@ -60,19 +60,15 @@ bool checkDateTime(DateTime dt) {
 	return true;
 }
 
-#define _CRT_SECURE_NO_WARNINGS
+string getUppercaseString(string str) {
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] >= (char)97 && str[i] <= (char)122) {
+			str[i] -= (char)32;
+		}
+		if (str[i] >= (char)224 && str[i] <= (char)255) {
+			str[i] -= (char)32;
+		}
+	}
 
-//DateTime getCurrentDate() {
-//	time_t now;
-//	tm* timeinfo = localtime_s(now);
-//
-//	int day = timeinfo->tm_mday;
-//	int month = timeinfo->tm_mon + 1;
-//	int year = timeinfo->tm_year + 1900;
-//
-//	int hours = timeinfo->tm_hour;
-//	int minutes = timeinfo->tm_min;
-//
-//	DateTime current(day, month, year, hours, minutes);
-//	return current;
-//}
+	return str;
+}

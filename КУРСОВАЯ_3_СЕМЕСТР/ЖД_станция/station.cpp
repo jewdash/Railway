@@ -30,19 +30,23 @@ bool Station::writeStation() {
 	}
 }
 
-bool Station::readStation() {
+bool Station::readStation(vector<Station>& stv) {
 	try { 
 		ifstream fin("stations.txt"); 
 		if (!fin) throw "Ошибка открытия файла";
 
-		fin >> id_station
-			>> name_station
-			>> dep.code_department
-			>> dep.title
-			>> region.code_region
-			>> region.region
-			>> region.district;
-
+		Station st;
+		while (!fin.eof()) {
+			fin >> st.id_station
+				>> st.name_station
+				>> st.dep.code_department
+				>> st.dep.title
+				>> st.region.code_region
+				>> st.region.region
+				>> st.region.district;
+			stv.push_back(st);
+		}
+		stv.pop_back();
 		fin.close();
 		return true;
 	}

@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <fstream>
 #include <vector>
+#include <iomanip>
+#include <map>
 #include "console_settings.h"
 #include "checkings.h"
 
