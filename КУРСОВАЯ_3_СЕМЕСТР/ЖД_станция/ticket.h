@@ -5,6 +5,7 @@
 #include <string>
 #include <conio.h>
 #include <windows.h>
+#include <queue>
 
 using namespace std;
 
@@ -95,5 +96,12 @@ public:
 	}
 
 	bool writeTicket();
-	bool readTicket();
+	bool readTicket(vector<Ticket>& tkv);
+	DateTime getDepDate();
+	DateTime getArrDate();
+};
+
+class CompareDate {
+public:
+	bool operator()(Ticket& td1, Ticket& td2);
 };

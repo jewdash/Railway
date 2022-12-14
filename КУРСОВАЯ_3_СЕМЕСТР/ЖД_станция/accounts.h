@@ -7,10 +7,12 @@
 #include <vector>
 #include <iomanip>
 #include <map>
+#include <memory>
 #include "console_settings.h"
 #include "checkings.h"
 
 using namespace std;
+using namespace additional_funcs;
 
 class Account {
 protected:
@@ -38,10 +40,10 @@ public:
 	//virtual bool writeInfo();
 	//virtual bool readInfo();
 
-	virtual void display_tickets();
-	virtual void sort_tickets();
-	virtual void filter_tickets();
-	virtual void find_ticket();
+	virtual void display_tickets() = 0;
+	virtual void sort_tickets() = 0;
+	virtual void filter_tickets() = 0;
+	virtual void find_ticket() = 0;
 
 	virtual bool loginCorrect() { return true; }
 };

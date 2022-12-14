@@ -7,8 +7,7 @@
 #include "ticket.h"
 #include "checkings.h"
 
-
-bool checkAuthorization(int min, int max, string data, bool consider_digits, bool consider_special_signs) {
+bool additional_funcs::checkAuthorization(int min, int max, string data, bool consider_digits, bool consider_special_signs) {
 	if (data.size() > max || data.size() < min) return false;
 	int ctr = 0;
 	for (int i = 0; i < data.size(); i++) {
@@ -34,11 +33,11 @@ bool checkAuthorization(int min, int max, string data, bool consider_digits, boo
 	return true;
 }
 
-void generateID(int id) {
+void additional_funcs::generateID(int id) {
 	id = (1000 + rand() % 10000) - 1000;
 }
 
-bool checkDateTime(DateTime dt) {
+bool additional_funcs::checkDateTime(DateTime dt) {
 	if (dt.getY() < 1970 || dt.getY() > 2100) return false;
 	if (dt.getMth() < 1 || dt.getMth() > 12) return false;
 	switch (dt.getMth()) {
@@ -60,7 +59,7 @@ bool checkDateTime(DateTime dt) {
 	return true;
 }
 
-string getUppercaseString(string str) {
+string additional_funcs::getUppercaseString(string str) {
 	for (int i = 0; i < str.size(); i++) {
 		if (str[i] >= (char)97 && str[i] <= (char)122) {
 			str[i] -= (char)32;
@@ -71,4 +70,12 @@ string getUppercaseString(string str) {
 	}
 
 	return str;
+}
+
+template<class T>
+void additional_funcs::swap(T& elem_1, T& elem_2) {
+	T temporary;
+	temporary = elem_1;
+	elem_1 = elem_2;
+	elem_2 = temporary;
 }

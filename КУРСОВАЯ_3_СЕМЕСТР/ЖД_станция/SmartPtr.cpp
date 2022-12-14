@@ -1,6 +1,12 @@
 #include "SmartPtr.h"
 
 template<class T>
+SmartPointer<T>::SmartPointer() {
+	smartPtr->ptr = NULL;
+	smartPtr->counter = 0;
+}
+
+template<class T>
 SmartPointer<T>::SmartPointer(T* ptr) {
 	if (!ptr)
 		smartPtr = NULL;

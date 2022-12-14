@@ -14,6 +14,8 @@ class SmartPointer
 {
 	Status<T>* smartPtr;
 public:
+	SmartPointer();
+
 	SmartPointer(T* ptr);
 
 	~SmartPointer();

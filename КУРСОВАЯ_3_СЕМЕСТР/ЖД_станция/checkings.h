@@ -9,8 +9,13 @@ using std::cin;
 using std::endl;
 using std::string;
 
-bool checkAuthorization(int, int, string, bool, bool);
-void generateID(int);
-bool checkDateTime(DateTime);
-string getUppercaseString(string);
+namespace additional_funcs {
+	bool checkAuthorization(int, int, string, bool, bool);
+	void generateID(int);
+	bool checkDateTime(DateTime);
+	string getUppercaseString(string);
+
+	template<class T>
+	void swap(T&, T&);
+}
 //DateTime getCurrentDate();

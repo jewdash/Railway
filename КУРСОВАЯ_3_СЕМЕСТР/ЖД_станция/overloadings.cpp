@@ -106,16 +106,29 @@ bool operator > (DateTime dt_1, DateTime dt_2) {
 
 istream& operator >> (istream& is, DateTime& dt) {
 	while (1) {
+		cout << endl << endl;
+		SetConsoleTextAttribute(hStdOut, 15);
 		cout << " ДАТА: " << endl;
-		cout << " --- День: "; is >> dt.dd;
-		cout << " --- Месяц: "; is >> dt.mm;
-		cout << " --- Год: "; is >> dt.yyyy;
+		cout << "  --- День: "; 
+		SetConsoleTextAttribute(hStdOut, 14); ConsoleCursorVisible(true, 100); is >> dt.dd;
+		SetConsoleTextAttribute(hStdOut, 15);
+		cout << "  --- Месяц: "; 
+		SetConsoleTextAttribute(hStdOut, 14); ConsoleCursorVisible(true, 100); is >> dt.mm;
+		SetConsoleTextAttribute(hStdOut, 15);
+		cout << "  --- Год: "; 
+		SetConsoleTextAttribute(hStdOut, 14); ConsoleCursorVisible(true, 100); is >> dt.yyyy;
+		SetConsoleTextAttribute(hStdOut, 15);
 		cout << " ВРЕМЯ: " << endl;
-		cout << " --- Часы: "; is >> dt.hh;
-		cout << " --- Минуты: "; is >> dt.mt;
+		cout << "  --- Часы: "; 
+		SetConsoleTextAttribute(hStdOut, 14); ConsoleCursorVisible(true, 100); is >> dt.hh;
+		SetConsoleTextAttribute(hStdOut, 15);
+		cout << "  --- Минуты: "; 
+		SetConsoleTextAttribute(hStdOut, 14); ConsoleCursorVisible(true, 100); is >> dt.mt;
+		SetConsoleTextAttribute(hStdOut, 15);
 
 		if (!checkDateTime(dt)) {
 			SetConsoleTextAttribute(hStdOut, 12);
+			ConsoleCursorVisible(false, 100);
 			cout << endl << endl << " Ошибка ввода даты! " << endl;
 			SetConsoleTextAttribute(hStdOut, 4);
 			cout << endl;
@@ -130,23 +143,15 @@ istream& operator >> (istream& is, DateTime& dt) {
 }
 
 ostream& operator << (ostream& os, DateTime& dt) {
-	cout.fill('0');
-	cout << setw(2) << dt.dd << "."
+	os.fill('0');
+	os << setw(2) << dt.dd << "."
 		<< setw(2) << dt.mm << "."
 		<< setw(4) << dt.yyyy;
-	cout.fill(' '); cout << "   ";
-	cout.fill('0');
-	cout << setw(2) << dt.hh << ":"
+	os.fill(' '); cout << "   ";
+	os.fill('0');
+	os << setw(2) << dt.hh << ":"
 		<< setw(2) << dt.mt;
+
+	cout.fill(' ');
 	return os;
-}
-
-ifstream& operator >> (ifstream& fis, DateTime& dt) {
-	fis >> dt.dd >> dt.mm >> dt.yyyy >> dt.hh >> dt.mt;
-	return fis;
-}
-
-ofstream& operator << (ofstream& fos, DateTime& dt) {
-	fos << dt.dd << "\t" << dt.mm << "\t" << dt.yyyy << "\t" << dt.hh << "\t" << dt.mt;
-	return fos;
 }

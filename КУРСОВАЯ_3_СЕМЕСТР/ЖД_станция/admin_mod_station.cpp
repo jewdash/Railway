@@ -5,6 +5,8 @@
 #include "SmartPtr.cpp"
 
 vector<Station> station_vec;
+using namespace std;
+using namespace additional_funcs;
 
 void AdminAcc::add_station() {
 	Station st;
@@ -441,7 +443,6 @@ void AdminAcc::display_stations() {
 	system("cls");
 	cout << endl << " ÑÏÈÑÎÊ ÆÅËÅÇÍÎÄÎÐÎÆÍÛÕ ÑÒÀÍÖÈÉ " << endl << endl;
 	Station st;
-	string editing;
 	station_vec.clear();
 	if (!st.readStation(station_vec)) return;
 
@@ -549,7 +550,7 @@ void AdminAcc::find_station() {
 	int i;
 	bool found = false;
 	for (i = 0; i < station_vec.size(); i++) {
-		if (station_vec[i].name_station == finding) {
+		if (getUppercaseString(station_vec[i].name_station) == getUppercaseString(finding)) {
 			found = true;
 			break;
 		}
