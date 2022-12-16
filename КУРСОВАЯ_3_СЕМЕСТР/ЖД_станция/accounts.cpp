@@ -35,7 +35,7 @@ void Account::sign_in() {
 	while (1) {
 		SetConsoleTextAttribute(hStdOut, 7);
 		cout << "\n Введите пароль: ";
-		SetConsoleTextAttribute(hStdOut, 14);
+		SetConsoleTextAttribute(hStdOut, 238);
 		ConsoleCursorVisible(true, 100);
 		getline(cin, password);
 		ConsoleCursorVisible(false, 100);
@@ -92,7 +92,7 @@ void Account::sign_up() {
 	while (1) {
 		SetConsoleTextAttribute(hStdOut, 7);
 		cout << "\n Придумайте пароль: ";
-		SetConsoleTextAttribute(hStdOut, 14);
+		SetConsoleTextAttribute(hStdOut, 238);
 		ConsoleCursorVisible(true, 100);
 		getline(cin, password);
 		ConsoleCursorVisible(false, 100);

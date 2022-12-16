@@ -65,6 +65,7 @@ protected:
 	friend class UserAcc;
 	friend class AdminAcc;
 	friend class Ticket;
+	friend class History;
 public:
 	Station() : id_station(0), name_station("N/A"), dep(0, "N/A"), region(0, "N/A", "N/A") {}
 	Station(int id, Department dep, Region region, string name_station) {
@@ -77,4 +78,6 @@ public:
 	
 	bool writeStation();
 	bool readStation(vector<Station>& stv);
+	int getIDStation();
+	string getNameStation();
 };

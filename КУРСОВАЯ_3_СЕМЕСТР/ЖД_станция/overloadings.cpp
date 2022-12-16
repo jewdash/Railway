@@ -155,3 +155,17 @@ ostream& operator << (ostream& os, DateTime& dt) {
 	cout.fill(' ');
 	return os;
 }
+
+ifstream& operator >> (ifstream& fis, DateTime& dt) {
+	fis >> dt.dd >> dt.mm >> dt.yyyy >> dt.hh >> dt.mt;
+	return fis;
+}
+
+ofstream& operator << (ofstream& fos, DateTime& dt) {
+	fos << dt.dd << "\t"
+		<< dt.mm << "\t"
+		<< dt.yyyy << "\t"
+		<< dt.hh << "\t"
+		<< dt.mt << "\t";
+	return fos;
+}

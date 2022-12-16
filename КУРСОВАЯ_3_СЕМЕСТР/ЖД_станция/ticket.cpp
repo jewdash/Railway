@@ -108,5 +108,8 @@ bool Ticket::readTicket(vector<Ticket>& tkv) {
 	}
 }
 
+int Ticket::getID() { return id_ticket; }
 DateTime Ticket::getDepDate() { return dep_dt; }
 DateTime Ticket::getArrDate() { return arr_dt; }
+string Ticket::getDepStation() { return dep_station.name_station; }
+string Ticket::getArrStation() { return arr_station.name_station; }

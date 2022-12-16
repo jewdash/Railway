@@ -1,52 +1,4 @@
-﻿  MAIN.cpp
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(38,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(79,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(295,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(310,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(360,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(360,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(365,36): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(420,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(435,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(485,18): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(485,54): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\MAIN.cpp(490,36): warning C4018: '<': signed/unsigned mismatch
-  accounts.cpp
-  admin_mod_station.cpp
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(171,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(204,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(256,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(289,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(473,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(552,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(671,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(754,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(837,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(1014,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(1058,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(1157,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_station.cpp(1201,22): warning C4018: '<': signed/unsigned mismatch
-  admin_mod_ticket.cpp
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(46,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(90,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(214,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(247,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(313,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(345,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(399,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(442,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(616,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(706,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(823,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(924,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(1074,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(1124,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(1228,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(1278,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\admin_mod_ticket.cpp(1377,16): warning C4018: '<': signed/unsigned mismatch
-  overloadings.cpp
-  user_mod_buying.cpp
-  user_mod_ticket.cpp
+﻿  user_mod_ticket.cpp
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(138,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(255,22): warning C4018: '<': signed/unsigned mismatch
@@ -55,8 +7,5 @@ C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(557,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(661,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(711,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(811,16): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\overloadings.cpp(105): warning C4715: 'operator>': not all control paths return a value
-C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\overloadings.cpp(81): warning C4715: 'operator<': not all control paths return a value
+C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\ЖД_станция\user_mod_ticket.cpp(828,16): warning C4018: '<': signed/unsigned mismatch
   ЖД_станция.vcxproj -> C:\Users\User\source\repos\КУРСОВАЯ_3_СЕМЕСТР\Debug\ЖД_станция.exe

@@ -149,6 +149,7 @@
     <ClCompile Include="admin_mod_station.cpp" />
     <ClCompile Include="admin_mod_ticket.cpp" />
     <ClCompile Include="overloadings.cpp" />
+    <ClCompile Include="history.cpp" />
     <ClCompile Include="station.cpp" />
     <ClCompile Include="ticket.cpp" />
     <ClCompile Include="user_mod_buying.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="accounts.h" />
     <ClInclude Include="console_settings.h" />
     <ClInclude Include="checkings.h" />
+    <ClInclude Include="history.h" />
     <ClInclude Include="ticket.h" />
     <ClInclude Include="station.h" />
     <ClInclude Include="State.h" />
@@ -169,6 +171,7 @@
     <Text Include="stations.txt" />
     <Text Include="regions.txt" />
     <Text Include="departaments.txt" />
+    <Text Include="hist.txt" />
     <Text Include="tickets.txt" />
     <Text Include="user.txt" />
   </ItemGroup>

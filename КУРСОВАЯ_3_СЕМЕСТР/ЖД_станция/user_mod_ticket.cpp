@@ -785,17 +785,34 @@ void UserAcc::find_ticket() {
 	cout << endl << " ПОИСК ЖЕЛЕЗНОДОРОЖНОГО БИЛЕТА" << endl << endl;
 	Ticket tk;
 	vector<Ticket> ticket_vec;
-	int finding;
+	string finding_1, finding_2;
 	ticket_vec.clear();
 	if (!tk.readTicket(ticket_vec)) return;
 
 	while (1) {
-		cout << " Введите ID искомого билета: ";
+		cout << " Введите станцию ОТПРАВЛЕНИЯ: ";
 		SetConsoleTextAttribute(hStdOut, 14);
 		ConsoleCursorVisible(true, 100);
-		cin >> finding;
+		rewind(stdin); getline(cin, finding_1);
 		ConsoleCursorVisible(false, 100);
-		if (cin.fail() || finding <= 0) {
+		if (finding_1.empty()) {
+			SetConsoleTextAttribute(hStdOut, 12);
+			cout << endl << endl << " Произошла ошибка из-за некорректного ввода. Повторите поптыку...";
+			cout << endl << endl;
+			continue;
+		}
+		else break;
+	}
+	cout << endl;
+
+	SetConsoleTextAttribute(hStdOut, 15);
+	while (1) {
+		cout << " Введите станцию ПРИБЫТИЯ: ";
+		SetConsoleTextAttribute(hStdOut, 14);
+		ConsoleCursorVisible(true, 100);
+		rewind(stdin); getline(cin, finding_2);
+		ConsoleCursorVisible(false, 100);
+		if (finding_2.empty()) {
 			SetConsoleTextAttribute(hStdOut, 12);
 			cout << endl << endl << " Произошла ошибка из-за некорректного ввода. Повторите поптыку...";
 			cout << endl << endl;
@@ -809,7 +826,9 @@ void UserAcc::find_ticket() {
 	int i;
 	bool found = false;
 	for (i = 0; i < ticket_vec.size(); i++) {
-		if (ticket_vec[i].id_ticket == finding) {
+		if (getUppercaseString(ticket_vec[i].dep_station.name_station) == getUppercaseString(finding_1)
+			&&
+			getUppercaseString(ticket_vec[i].arr_station.name_station) == getUppercaseString(finding_2)) {
 			found = true;
 			break;
 		}
@@ -817,7 +836,7 @@ void UserAcc::find_ticket() {
 
 	if (!found) {
 		SetConsoleTextAttribute(hStdOut, 12);
-		cout << endl << endl << " Билета с таким ID не существует в базе данных";
+		cout << endl << endl << " Билета не существует в базе данных";
 		cout << endl << endl;
 		SetConsoleTextAttribute(hStdOut, 4);
 		Sleep(2000);

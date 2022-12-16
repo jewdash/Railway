@@ -127,7 +127,7 @@ void menu() {
 
 					SetConsoleTextAttribute(hStdOut, 7);
 					cout << "\n Введите ключ администратора: ";
-					SetConsoleTextAttribute(hStdOut, 14);
+					SetConsoleTextAttribute(hStdOut, 238);
 					ConsoleCursorVisible(true, 100);
 					getline(cin, confirm);
 					ConsoleCursorVisible(false, 100);
@@ -176,7 +176,7 @@ void menu() {
 
 					SetConsoleTextAttribute(hStdOut, 7);
 					cout << "\n Введите ключ администратора: ";
-					SetConsoleTextAttribute(hStdOut, 14);
+					SetConsoleTextAttribute(hStdOut, 238);
 					ConsoleCursorVisible(true, 100);
 					getline(cin, confirm);
 					ConsoleCursorVisible(false, 100);

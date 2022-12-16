@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable: 4996)
 
 #include "station.h"
 #include <iostream>
@@ -6,6 +7,9 @@
 #include <conio.h>
 #include <windows.h>
 #include <queue>
+#include <ctime>
+
+#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -31,6 +35,7 @@ protected:
 	friend class Ticket;
 	friend class UserAcc;
 	friend class AdminAcc;
+	friend inline DateTime date_today();
 public:
 	DateTime() {}
 	DateTime(int dd, int mm, int yyyy, int hh, int mt) {
@@ -67,6 +72,7 @@ protected:
 	int price;
 	friend class UserAcc;
 	friend class AdminAcc;
+	friend class History;
 public:
 	Ticket() :
 		id_ticket(0),
@@ -97,11 +103,28 @@ public:
 
 	bool writeTicket();
 	bool readTicket(vector<Ticket>& tkv);
+	int getID();
 	DateTime getDepDate();
 	DateTime getArrDate();
+	string getDepStation();
+	string getArrStation();
 };
 
 class CompareDate {
 public:
 	bool operator()(Ticket& td1, Ticket& td2);
 };
+
+DateTime date_today() {
+	DateTime dt;
+	time_t current = time(NULL);
+	struct tm tm = *localtime(&current);
+
+	dt.dd = tm.tm_mday;
+	dt.mm = tm.tm_mon + 1;
+	dt.yyyy = tm.tm_year + 1900;
+	dt.hh = tm.tm_hour;
+	dt.mt = tm.tm_min;
+
+	return dt;
+}

@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <string>
 #include "ticket.h"
+#include <ctime>
 //extern HANDLE hStdOut;
 using std::cout;
 using std::cin;

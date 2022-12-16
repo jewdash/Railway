@@ -7,7 +7,6 @@
 #include "SmartPtr.cpp"
 
 vector<Ticket> ticket_vec;
-DateTime today = {14, 12, 2022, 23, 0};
 using namespace std;
 using namespace additional_funcs;
 
@@ -118,7 +117,7 @@ void AdminAcc::create_ticket() {
 		cout << "Введите дату ОТПРАВЛЕНИЯ: " << endl;
 		cin >> tk.dep_dt;
 		cout << endl << endl;
-		if (tk.dep_dt < today) {
+		if (tk.dep_dt < date_today()) {
 			SetConsoleTextAttribute(hStdOut, 12);
 			cout << "Введено прошедшее значение. Повторите ввод.";
 			cout << endl << endl;
@@ -468,7 +467,7 @@ void AdminAcc::edit_ticket() {
 						cout << "Введите дату ОТПРАВЛЕНИЯ: " << endl;
 						cin >> ticket_vec[k].dep_dt;
 						cout << endl << endl;
-						if (ticket_vec[k].dep_dt < today) {
+						if (ticket_vec[k].dep_dt < date_today()) {
 							SetConsoleTextAttribute(hStdOut, 12);
 							cout << "Введено прошедшее значение. Повторите ввод.";
 							cout << endl << endl;
@@ -1351,17 +1350,35 @@ void AdminAcc::find_ticket() {
 	ConsoleCursorVisible(false, 100);
 	cout << endl << " ПОИСК ЖЕЛЕЗНОДОРОЖНОГО БИЛЕТА" << endl << endl;
 	Ticket tk;
-	int finding;
+	vector<Ticket> ticket_vec;
+	string finding_1, finding_2;
 	ticket_vec.clear();
 	if (!tk.readTicket(ticket_vec)) return;
 
 	while (1) {
-		cout << " Введите ID искомого билета: ";
+		cout << " Введите станцию ОТПРАВЛЕНИЯ: ";
 		SetConsoleTextAttribute(hStdOut, 14);
 		ConsoleCursorVisible(true, 100);
-		cin >> finding;
+		rewind(stdin); getline(cin, finding_1);
 		ConsoleCursorVisible(false, 100);
-		if (cin.fail() || finding <= 0) {
+		if (finding_1.empty()) {
+			SetConsoleTextAttribute(hStdOut, 12);
+			cout << endl << endl << " Произошла ошибка из-за некорректного ввода. Повторите поптыку...";
+			cout << endl << endl;
+			continue;
+		}
+		else break;
+	}
+	cout << endl;
+
+	SetConsoleTextAttribute(hStdOut, 15);
+	while (1) {
+		cout << " Введите станцию ПРИБЫТИЯ: ";
+		SetConsoleTextAttribute(hStdOut, 14);
+		ConsoleCursorVisible(true, 100);
+		rewind(stdin); getline(cin, finding_2);
+		ConsoleCursorVisible(false, 100);
+		if (finding_2.empty()) {
 			SetConsoleTextAttribute(hStdOut, 12);
 			cout << endl << endl << " Произошла ошибка из-за некорректного ввода. Повторите поптыку...";
 			cout << endl << endl;
@@ -1375,7 +1392,9 @@ void AdminAcc::find_ticket() {
 	int i;
 	bool found = false;
 	for (i = 0; i < ticket_vec.size(); i++) {
-		if (ticket_vec[i].id_ticket == finding) {
+		if (getUppercaseString(ticket_vec[i].dep_station.name_station) == getUppercaseString(finding_1)
+			&&
+			getUppercaseString(ticket_vec[i].arr_station.name_station) == getUppercaseString(finding_2)) {
 			found = true;
 			break;
 		}
@@ -1383,7 +1402,7 @@ void AdminAcc::find_ticket() {
 
 	if (!found) {
 		SetConsoleTextAttribute(hStdOut, 12);
-		cout << endl << endl << " Билета с таким ID не существует в базе данных";
+		cout << endl << endl << " Билета не существует в базе данных";
 		cout << endl << endl;
 		SetConsoleTextAttribute(hStdOut, 4);
 		Sleep(2000);

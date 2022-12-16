@@ -61,3 +61,6 @@ bool Station::readStation(vector<Station>& stv) {
 		return false;
 	}
 }
+
+int Station::getIDStation() { return id_station; }
+string Station::getNameStation() { return name_station; }
